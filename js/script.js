@@ -22,3 +22,26 @@ for (let exp of expenses) {
   li.innerText = `$ ${exp}`;
   expensesList.append(li);
 }
+
+// Show lowest expense item in expenses and largest expense
+const showMinMax = function (expenses) {
+  const min = Math.min(...expenses);
+  const max = Math.max(...expenses);
+
+  let listItemMin = document.createElement("li");
+  listItemMin.innerText = `Min: $ ${min}`;
+
+  let listItemMax = document.createElement("li");
+  listItemMax.innerText = `Max: $ ${max}`;
+
+  results.append(listItemMin);
+  results.append(listItemMax);
+
+  results.classList.remove("hide");
+};
+
+// Click on the button the disable after showing min and max
+button.addEventListener ("click", function () {
+  showMinMax(expenses);
+  button.disabled = true;
+});
